@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>const start = performance.now();</script>
+    <style type="text/css">
+      #print {display: none;}
+    </style>
+  <script>const end = performance.now();</script>
+  </head>
+  <body>
+    <h1 id="print">This render is using the print stylesheet.</h1>
+    <h1 id="screen">This render is not using the print stylesheet.</h1>
+    <p>This test page imports an external print style sheet that takes 10 seconds
+      to load in order to test if the browser blocks parsing and rendering until
+      the mismatched stylesheet loads.</p>
+    <p>Make sure to "print" this page and verify that the heading changed to indicate that the print stylesheet is being used.</p>
+    <script>
+      console.log("elapsed time: " + (end - start));
+      if (end - start < 10000) {
+        document.write("CONGRATULATIONS! The browser did not block parsing on the mismatched import.");
+      } else {
+        document.write("Sorry, it appears the browser blocked parsing and rendering the HTML until the mismatched import loaded.");
+      }
+    </script>
+  </body>
+</html>
