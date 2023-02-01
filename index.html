@@ -3,6 +3,7 @@
 <html>
   <head>
     <meta charset=utf-8>
+    <link rel="help" href="https://www.w3.org/TR/CSS2/cascade.html#at-import" />
     <script>const start = performance.now();</script>
     <style type="text/css">
       @import "https://pink-enthusiastic-vulture.cyclic.app" print;   
@@ -12,7 +13,8 @@
   <body>
      <script>
       console.log("elapsed time: " + (end - start));
-      if (end - start < 10000) {
+      const timing =end -start;
+      if ( timing < 10000) {
         document.write("TEST PASSED");
       } else {
         document.write("TEST FAILED");
